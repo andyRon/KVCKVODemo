@@ -15,6 +15,11 @@
 @property (nonatomic,copy)NSString* country;
 @end
 @implementation Address
+
+- (id)valueForUndefinedKey:(NSString *)key {
+    return key;
+}
+
 @end
 
 @interface People : NSObject
@@ -25,6 +30,9 @@
 @property (nonatomic,assign) NSInteger age;
 @end
 @implementation People
+
+
+
 @end
 
 int main(int argc, const char * argv[]) {
@@ -40,7 +48,8 @@ int main(int argc, const char * argv[]) {
         [people1 setValue:@"USA" forKeyPath:@"address.country"];
         country1 = people1.address.country;
         country2 = [people1 valueForKeyPath:@"address.country"];
-        NSLog(@"country1:%@   country2:%@",country1,country2);
+        NSString* city = [people1 valueForKeyPath:@"address.city"];
+        NSLog(@"country1:%@   country2:%@  city:%@",country1, country2, city);
     }
     return 0;
 }

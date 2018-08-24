@@ -22,7 +22,7 @@
 //     toSetName = name;
 // }
 //-(NSString*)getName{
-//    return toSetName;
+//    return toSetName;w
 //}
 +(BOOL)accessInstanceVariablesDirectly{
     return NO;
